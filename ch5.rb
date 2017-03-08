@@ -15,7 +15,7 @@ last_name = gets.chomp
 puts
 puts "Pleaed to meet you, " + first_name.capitalize + " " + middle_name.capitalize + " " + last_name.capitalize
 
-#bigger better favorite number
+# bigger better favorite number
 
 puts
 puts "So ... what's your favorite number?"
