@@ -40,6 +40,7 @@ end
 
 # Deaf grandma extended 
 
+puts
 puts "Go on, say something to Grandma, firmly now"
 question = ""
 count = 0
@@ -50,15 +51,18 @@ while true
   not_since = "no, not since " + random_year.to_s + "!"
 
   if question == "bye".upcase
-    count +=1
-    if count >= 3
-      break
-    end
-  elsif question == question.upcase
-    count = 0
-    puts not_since.upcase
+    count += 1
   else
     count = 0
+  end
+
+  if count >= 3
+      break
+  end
+
+  if question == question.upcase
+    puts not_since.upcase
+  else
     puts "huh?! speak up, sonny!".upcase
   end
 end
