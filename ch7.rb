@@ -22,15 +22,18 @@ end
 # Deaf grandma
 
 puts "Go on, say something to Grandma"
-question = gets.chomp
+question = ""
 
-huh = "huh?! speak up, sonny!"
-random_year =  1930 + rand(20)
-not_since = "no, not since " + random_year.to_s + "!"
+while true
+  question = gets.chomp
+  random_year =  1930 + rand(20)
+  not_since = "no, not since " + random_year.to_s + "!"
 
-if question == question.upcase
-  puts not_since.upcase
-else 
-  puts huh.upcase
+  if question == "bye".upcase
+    break
+  elsif question == question.upcase
+    puts not_since.upcase
+  else
+    puts "huh?! speak up, sonny!".upcase
+  end
 end
-    
