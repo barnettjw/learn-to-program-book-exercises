@@ -37,3 +37,28 @@ while true
     puts "huh?! speak up, sonny!".upcase
   end
 end
+
+# Deaf grandma extended 
+
+puts "Go on, say something to Grandma, firmly now"
+question = ""
+count = 0
+
+while true
+  question = gets.chomp
+  random_year =  1930 + rand(21)
+  not_since = "no, not since " + random_year.to_s + "!"
+
+  if question == "bye".upcase
+    count +=1
+    if count >= 3
+      break
+    end
+  elsif question == question.upcase
+    count = 0
+    puts not_since.upcase
+  else
+    count = 0
+    puts "huh?! speak up, sonny!".upcase
+  end
+end
