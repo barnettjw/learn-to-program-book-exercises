@@ -26,7 +26,7 @@ question = ""
 
 while true
   question = gets.chomp
-  random_year =  1930 + rand(20)
+  random_year =  1930 + rand(21)
   not_since = "no, not since " + random_year.to_s + "!"
 
   if question == "bye".upcase
