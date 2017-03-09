@@ -25,7 +25,8 @@ puts "Go on, say something to Grandma"
 question = gets.chomp
 
 huh = "huh?! speak up, sonny!"
-not_since = "no, not since 1938!"
+random_year =  1930 + rand(20)
+not_since = "no, not since " + random_year.to_s + "!"
 
 if question == question.upcase
   puts not_since.upcase
