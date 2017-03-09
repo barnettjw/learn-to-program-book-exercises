@@ -18,3 +18,18 @@ until i < 1
 
   i -= 1
 end
+
+# Deaf grandma
+
+puts "Go on, say something to Grandma"
+question = gets.chomp
+
+huh = "huh?! speak up, sonny!"
+not_since = "no, not since 1938!"
+
+if question == question.upcase
+  puts not_since.upcase
+else 
+  puts huh.upcase
+end
+    
