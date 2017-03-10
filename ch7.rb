@@ -66,3 +66,19 @@ while true
     puts "huh?! speak up, sonny!".upcase
   end
 end
+
+# Leap years
+puts "Let's get a list of leap years"
+puts "Starting year: "
+starting_year = gets.chomp.to_i
+puts "Ending year: "
+ending_year = gets.chomp.to_i 
+puts
+
+for year in starting_year..ending_year
+  if (year % 4 == 0) && (year % 100 != 0)
+    puts year.to_s
+  elsif year % 400 == 0
+    puts year.to_s
+  end
+end
