@@ -1,11 +1,9 @@
 # Improved ask method
-
-def ask question
-  puts question
-  reply = ""
-
+def ask question 
+ 
   while true
-    answer = gets.chomp
+    puts question
+    reply = gets.chomp
 
     if reply == "yes" 
       return true
@@ -15,7 +13,7 @@ def ask question
       puts "Please answer 'yes' or 'no'"
     end
   end
-  
+
 end
 
 ask "Do you like cake?"
