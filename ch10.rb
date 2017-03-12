@@ -27,3 +27,29 @@ end
 p recursive_sort ["d", "b", "apes", "c", "ape", ], []
 #debugging - verify my sort method against the built-in sort method
 #p ["d", "b", "apes", "c", "ape", ].sort #
+
+#Shuffle
+def shuffle unshuffled, shuffled
+  if unshuffled.length <= 0
+    return shuffled
+  end
+
+  temp_unshuffled = []
+  random = unshuffled[rand(0..unshuffled.length - 1)]
+  
+  #iterate through looking for the randomly selected element
+  unshuffled.each do |elem|
+    if elem == random
+      #if found add it to the shuffled array
+      shuffled.push elem
+    else
+      #if not add it to temp_unshuffled
+      temp_unshuffled.push elem
+    end
+  end
+
+  #recursively call shuffle with temp_unshuffled, to continue shuffle the remaining items
+  shuffle temp_unshuffled, shuffled
+end
+
+p shuffle ["dog", "ball", "apes", "c", "ape", "123", "LARK"], []
