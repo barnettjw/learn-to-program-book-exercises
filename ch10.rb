@@ -96,15 +96,21 @@ end
 def english_number
   number = get_number
   ones = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+  teens = ["eleven", "twelve", "thirteen", "fourteen", "fifeteen", "sixteen", "seventeen", "eighteen", "nineteen"]
   tens = ["ten", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety"]
 
   if number < 10
-    written_number = ones[number-1]
-  elsif number > 10 && number < 100
+    written_number = ones[number - 1]
+  elsif number > 10 && number < 20
+    #eleven is in index 0 of teens so we need to add 11
+    written_number = teens[number - (11)]
+  elsif number > 19 && number < 100
     write_tens = number / 10
     written_number = tens[write_tens - 1]
-    write_ones = number % 10
-    written_number += "-" + ones[write_ones - 1]
+    if number % 10 < 0
+      write_ones = number % 10
+      written_number += "-" + ones[write_ones - 1]
+    end
   end
   return written_number
 end
