@@ -84,37 +84,53 @@ p recursive_sort ["dog", "b", "Apes", "Cat", "ape", ], []
 
 #English Number
 def get_number
-  puts "Please enter a number between 1 to 99"
+  puts "Please enter a number between 1 to 999"
   number = gets.chomp.to_i
-  if number < 1 || number > 99
+  if number < 1 || number > 1000
     get_number
   else
     return number
   end
 end
 
-def english_number
-  number = get_number
+def english_number number, written_number
+  
   ones = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
   teens = ["eleven", "twelve", "thirteen", "fourteen", "fifeteen", "sixteen", "seventeen", "eighteen", "nineteen"]
   tens = ["ten", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+  #larger = ["thousand", "million", "billion", "trillon", "quadrillion"]
 
   if number < 10
-    written_number = ones[number - 1]
+    written_number += ones[number - 1]
+    number -= number
   elsif number > 10 && number < 20
     #eleven is in index 0 of teens so we need to add 11
-    written_number = teens[number - (11)]
+    written_number += teens[number - (11)]
+    number -= number
   elsif number > 19 && number < 100
     write_tens = number / 10
-    written_number = tens[write_tens - 1]
-    if number % 10 < 0
-      write_ones = number % 10
-      written_number += "-" + ones[write_ones - 1]
+    written_number += tens[write_tens - 1]
+
+    if (number % 10) > 0
+      number = number - (10 * (number / 10))
+      written_number += "-"
+      english_number number, written_number
+    end
+  elsif number > 99 && number < 1000
+    write_hundreds = number / 100
+    written_number += ones[write_hundreds - 1] += " hundred"
+
+    if (number % 100) > 0
+      number = number % 100
+      written_number += " "
+      english_number number, written_number
     end
   end
-  return written_number
+  if number <= 0
+    puts written_number
+  end
 end
 
-puts english_number
+english_number get_number, ""
 
 
