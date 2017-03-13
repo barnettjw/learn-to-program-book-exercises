@@ -55,7 +55,6 @@ end
 p shuffle ["dog", "ball", "apes", "c", "ape", "123", "LARK"], []
 
 #Dictionary sort
-
 def recursive_sort unsorted, sorted
   if unsorted.length <= 0
     return sorted
@@ -82,6 +81,34 @@ def recursive_sort unsorted, sorted
 end
 
 p recursive_sort ["dog", "b", "Apes", "Cat", "ape", ], []
-#debugging - verify my sort method against the built-in sort method
-#p ["d", "b", "apes", "c", "ape", ].sort #
+
+#English Number
+def get_number
+  puts "Please enter a number between 1 to 99"
+  number = gets.chomp.to_i
+  if number < 1 || number > 99
+    get_number
+  else
+    return number
+  end
+end
+
+def english_number
+  number = get_number
+  ones = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+  tens = ["ten", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+
+  if number < 10
+    written_number = ones[number-1]
+  elsif number > 10 && number < 100
+    write_tens = number / 10
+    written_number = tens[write_tens - 1]
+    write_ones = number % 10
+    written_number += "-" + ones[write_ones - 1]
+  end
+  return written_number
+end
+
+puts english_number
+
 
